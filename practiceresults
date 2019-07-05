@@ -1,0 +1,46 @@
+1.Highlight few differences between Block storage ( EBS ) & Object storage (s3)
+ANSWER:
+Amazon S3 is object based storage, in which we can store data into Amazon S3, and can be accessible with the object link.
+EBS is not a standalone storage service like AmazonS3 so you can use it only in combination with Amazon EC2. 
+Amazon EBSis designed to store data in volumes of a provisioned size attached to an Amazon EC2 instance, similar to a local disk drive on your physical machine
+
+2. Highlight few differences between NoSQL & SQL databases
+Answer:
+ SQL databases are primarily called as Relational Databases (RDBMS); 
+whereas NoSQL database are primarily called as non-relational or distributed database.
+SQL databases are table based databases whereas NoSQL databases are document based, key-value pairs.
+-SQL databases have predefined schema whereas NoSQL databases have dynamic schema for unstructured databade
+
+3. Highlight few differences between ssh & http protocol
+
+Answer:
+Both ssh and HTTP are protocols to communicate between client and server.Following are the basic difference between SSH and HTTP.
+SSH means “Secure Shell”. It has a built-in username/password authentication system to establish a connection. It uses Port 22 to perform the negotiation or authentication process for connection. 
+HTTP means HyperText Transfer Protocol. HTTP is the underlying protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted, and what actions Web servers and browsers should take in response to various commands.
+
+TASK 1:
+EC2 server is created in US East(Ohio) 
+
+TASK 2:
+Created S3 bucker with vagdevifianl in US East(Ohio) , then created IAM roles in IAM service for s3read and s3 full access. Attach policies accordingly. 
+
+TASK 3:
+Uploaded mysqlsampledatabase.sql file and in EC2 I tried downloaed, but ran into issue
+
+TASK 4:
+1. cat mysqlsampledatabase.sql  | wc -l
+7929
+2. sed 's/mysql/yoursql/g' mysqlsampledatabase.sql > modifiedMysqldatabase.sql
+3. grep -E "NULL" mysqlsampledatabase.sql | wc -l
+436
+
+TASK 5:
+2. mysql mariadb.cnws6j952rjn.us-east-2.rds.amazonaws.com m -mariadb -mariadb < mysqlsampledatabase.sql
+TASK 6:
+select c.customerName, p.productName 
+from customers c join orders o 
+on o.customerNumber = c.customerNumber 
+join orderdetails d 
+on d.orderNumber = o.orderNumber 
+join products p 
+on p.productCode = d.productCode;
